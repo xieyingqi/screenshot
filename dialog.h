@@ -7,12 +7,27 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QClipboard>
+#include <QFileDialog>
+#include <QGraphicsEffect>
 
 enum NOW_STATUS{
     START,
     SELECTED,
     EDITING,
     END
+};
+
+enum DRAG_POINT{
+    L_U,
+    L_D,
+    R_U,
+    R_D,
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT,
+    IN,
+    OUT
 };
 
 namespace Ui {
@@ -29,6 +44,8 @@ public:
     void hide_button();
     void show_button();
     void move_button(int x,int y);
+    void show_size(int x, int y);
+    void draw_selected(QRect rect);
 protected:
     /*绘图事件s*/
     void paintEvent(QPaintEvent *event);
@@ -36,9 +53,18 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);         //移动
     void mousePressEvent(QMouseEvent *event);        //单击
     void mouseReleaseEvent(QMouseEvent *event);      //释放
+    void keyPressEvent(QKeyEvent *event);
 
 private slots:
     void rec_creatFull();
+
+    void on_top_clicked();
+
+    void on_copy_clicked();
+
+    void on_save_clicked();
+
+    void on_edit_clicked();
 
 private:
     Ui::Dialog *ui;
@@ -62,7 +88,10 @@ private:
     int button_x,button_y;  //功能按钮相对位置
 
     QPoint drag_start,drag_end;    //拖动选区位置
-    bool update_lock=false; //限制界面更新
+    bool update_lock = false; //限制界面更新
+    DRAG_POINT drag_point; //鼠标在哪个拖拽点
+    bool drag_flag = false; //拖拽状态
+    bool drag_update = false;
 };
 
 
