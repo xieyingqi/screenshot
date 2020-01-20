@@ -23,7 +23,7 @@ SOURCES += \
 
 HEADERS += \
     dialog.h \
-    mainwindow.h
+    mainwindow.h \
 
 FORMS += \
     dialog.ui \
@@ -36,3 +36,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     ico.qrc
+
+DISTFILES += \
+
+INCLUDEPATH += aip-cpp-sdk-0.7.10 \
+                aip-cpp-sdk-0.7.10\base \
+                lib \
+LIBS += -LE:\7_Other\0_lianxi\Qt\screenshot\screenshot\lib\libcurl.a \
+        -LE:\7_Other\0_lianxi\Qt\screenshot\screenshot\lib\libcurl.dll.a

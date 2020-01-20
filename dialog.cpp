@@ -225,11 +225,11 @@ void Dialog::mousePressEvent(QMouseEvent *event)
                         start_pos.setY(select_y);
                         drag_flag = true;
                         break;
-                    case IN:
+                    case ININ:
                         drag_start = event->pos();
                         drag_flag = false;
                         break;
-                    case OUT:
+                    case OUTOUT:
                         nowStatus = START;
                         start_pos = event->pos();
                         drag_flag = false;
@@ -293,7 +293,7 @@ void Dialog::mouseMoveEvent(QMouseEvent *event)
                 }
                 else
                 {
-                    if(drag_point == IN)
+                    if(drag_point == ININ)
                     {
                         drag_end = event->pos();
                         update();
@@ -358,12 +358,12 @@ void Dialog::mouseMoveEvent(QMouseEvent *event)
         else if(select_rect.contains(event->pos()))
         {
             setCursor(Qt::SizeAllCursor);
-            drag_point = IN;
+            drag_point = ININ;
         }
         else
         {
             setCursor(Qt::ArrowCursor);
-            drag_point = OUT;
+            drag_point = OUTOUT;
         }
     }
 }

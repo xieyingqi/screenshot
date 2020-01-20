@@ -26,8 +26,8 @@ enum DRAG_POINT{
     DOWN,
     LEFT,
     RIGHT,
-    IN,
-    OUT
+    ININ,
+    OUTOUT
 };
 
 namespace Ui {
