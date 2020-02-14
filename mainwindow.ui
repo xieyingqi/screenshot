@@ -6,25 +6,45 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>283</width>
-    <height>201</height>
+    <width>485</width>
+    <height>333</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="start">
+   <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>50</y>
+      <x>190</x>
+      <y>130</y>
       <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>截图</string>
+     <string>翻译</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="ocr_res">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>401</width>
+      <height>81</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="translate_res">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>180</y>
+      <width>391</width>
+      <height>81</height>
+     </rect>
     </property>
    </widget>
   </widget>
@@ -33,7 +53,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>283</width>
+     <width>485</width>
      <height>23</height>
     </rect>
    </property>

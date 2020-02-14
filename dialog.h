@@ -66,6 +66,9 @@ private slots:
 
     void on_edit_clicked();
 
+signals:
+    void ocr_complete();
+
 private:
     Ui::Dialog *ui;
 

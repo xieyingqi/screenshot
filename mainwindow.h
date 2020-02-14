@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSystemTrayIcon>
+#include <QProcess>
+#include <QTextCodec>
 #include "dialog.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,7 +19,9 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_start_clicked();
+    void on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason);
+    void ocr_resShow(void);
+    void on_pushButton_clicked();
 
 signals:
     void send_creatFull();
@@ -24,5 +29,6 @@ signals:
 private:
     Ui::MainWindow *ui;
     Dialog full_screen;
+    QSystemTrayIcon *tary;
 };
 #endif // MAINWINDOW_H

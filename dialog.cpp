@@ -435,5 +435,8 @@ void Dialog::on_save_clicked()
 
 void Dialog::on_edit_clicked()
 {
+    select_img.save("screen.jpg","JPG",100);
 
+    close();
+    ocr_complete();
 }
