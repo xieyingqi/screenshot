@@ -42,6 +42,19 @@ void Dialog::hide_button()
 
 void Dialog::show_button()
 {
+    ui->top->setStyleSheet("QPushButton{background-color: rgb(255, 255, 255);border:none;}"
+            "QPushButton:hover{background-color: rgb(200, 200, 200);border-color:rgb(200, 200, 200);}"
+            );
+    ui->copy->setStyleSheet("QPushButton{background-color: rgb(255, 255, 255);border:none;}"
+            "QPushButton:hover{background-color: rgb(200, 200, 200);border-color:rgb(200, 200, 200);}"
+            );
+    ui->save->setStyleSheet("QPushButton{background-color: rgb(255, 255, 255);border:none;}"
+            "QPushButton:hover{background-color: rgb(200, 200, 200);border-color:rgb(200, 200, 200);}"
+            );
+    ui->edit->setStyleSheet("QPushButton{background-color: rgb(255, 255, 255);border:none;}"
+            "QPushButton:hover{background-color: rgb(200, 200, 200);border-color:rgb(200, 200, 200);}"
+            );
+
     ui->top->setVisible(true);
     ui->copy->setVisible(true);
     ui->save->setVisible(true);
@@ -73,6 +86,11 @@ void Dialog::show_size(int x, int y)
     ui->label->adjustSize();
 }
 
+void Dialog::hide_size(void)
+{
+    ui->label->setVisible(false);
+}
+
 void Dialog::draw_selected(QRect rect)
 {
     show_size(select_x,select_y);
@@ -80,13 +98,16 @@ void Dialog::draw_selected(QRect rect)
     if(select_w && select_h)
     {
         QPainter paint(this);
-        line_color = QColor(0,0,255,255);
+        line_color = QColor(32,128,240,255);
 
         /*复制屏幕的当前选择部分，并显示*/
         select_img = img.copy(rect);
         paint.drawPixmap(rect.topLeft(),select_img);
         /*显示选择框*/
-        paint.setPen(line_color);
+        QPen pen;
+        pen.setWidth(3);
+        pen.setColor(line_color);
+        paint.setPen(pen);
         paint.drawRect(rect);
 
         p_lu = QRect(select_x-2,select_y-2,5,5);
@@ -99,15 +120,15 @@ void Dialog::draw_selected(QRect rect)
         p_l = QRect(select_x-2,select_y+select_h/2-2,5,5);
         p_r = QRect(select_x+select_w-2,select_y+select_h/2-2,5,5);
 
-        paint.fillRect(p_lu,line_color);
-        paint.fillRect(p_ru,line_color);
-        paint.fillRect(p_ld,line_color);
-        paint.fillRect(p_rd,line_color);
+        paint.drawEllipse(p_lu);
+        paint.drawEllipse(p_ld);
+        paint.drawEllipse(p_ru);
+        paint.drawEllipse(p_rd);
 
-        paint.fillRect(p_u,line_color);
-        paint.fillRect(p_d,line_color);
-        paint.fillRect(p_l,line_color);
-        paint.fillRect(p_r,line_color);
+        paint.drawEllipse(p_u);
+        paint.drawEllipse(p_d);
+        paint.drawEllipse(p_l);
+        paint.drawEllipse(p_r);
     }
 }
 
@@ -233,6 +254,7 @@ void Dialog::mousePressEvent(QMouseEvent *event)
                         nowStatus = START;
                         start_pos = event->pos();
                         drag_flag = false;
+                        hide_button();
                         break;
                 }
                 break;
@@ -409,6 +431,7 @@ void Dialog::keyPressEvent(QKeyEvent *event)
 
 void Dialog::on_top_clicked()
 {
+    hide_size();
     setFixedSize(select_w+2,select_h+2);
     move(select_x,select_y);
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::Tool);

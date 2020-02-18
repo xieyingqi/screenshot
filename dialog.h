@@ -5,6 +5,7 @@
 #include <QScreen>
 #include <QApplication>
 #include <QPainter>
+#include <QPen>
 #include <QMouseEvent>
 #include <QClipboard>
 #include <QFileDialog>
@@ -45,6 +46,7 @@ public:
     void show_button();
     void move_button(int x,int y);
     void show_size(int x, int y);
+    void hide_size(void);
     void draw_selected(QRect rect);
 protected:
     /*绘图事件s*/
