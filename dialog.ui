@@ -40,6 +40,9 @@
      <height>30</height>
     </size>
    </property>
+   <property name="toolTip">
+    <string>贴图</string>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
@@ -71,6 +74,9 @@
      <width>30</width>
      <height>30</height>
     </size>
+   </property>
+   <property name="toolTip">
+    <string>复制</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -104,6 +110,9 @@
      <height>30</height>
     </size>
    </property>
+   <property name="toolTip">
+    <string>保存</string>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
@@ -135,6 +144,9 @@
      <width>30</width>
      <height>30</height>
     </size>
+   </property>
+   <property name="toolTip">
+    <string>识别/翻译</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>

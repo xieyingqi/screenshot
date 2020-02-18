@@ -6,54 +6,66 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>485</width>
-    <height>333</height>
+    <width>461</width>
+    <height>482</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>130</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>翻译</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="ocr_res">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>20</y>
-      <width>401</width>
-      <height>81</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="translate_res">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>180</y>
-      <width>391</width>
-      <height>81</height>
-     </rect>
-    </property>
-   </widget>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>168</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>翻译</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>178</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QTextEdit" name="ocr_res"/>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QTextEdit" name="translate_res"/>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>485</width>
+     <width>461</width>
      <height>23</height>
     </rect>
    </property>
